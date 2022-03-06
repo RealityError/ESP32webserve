@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>疫情防控系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="/static/login_use/style.css">
+</head>
+<body>
+<div class="container right-panel-active">
+    <!-- 注册 -->
+    <div class="container_form container--signup">
+        <form action="/reg" class="form" method="POST">
+            <h2 class="form_title">注册</h2>
+            <input type="text"  name="name" placeholder="用户名" class="input" />
+            <input type="email"  name="email"placeholder="邮箱" class="input" />
+            <input type="password" name="password" placeholder="密码" class="input" />
+             <h2 >{{msg}}</h2>
+            <button class="btn" type="submit">注册</button>
+        </form>
+    </div>
+
+    <!-- 登录 -->
+    <div class="container_form container--signin">
+        <form action="/login" class="form" method="post">
+            <h2 class="form_title">登录</h2>
+            <input type="email"  name="email_login"placeholder="邮箱" class="input" />
+            <input type="password" name="password_login" placeholder="密码" class="input" />
+            <a href="#" class="link">忘了密码?爬吧</a>
+            <button class="btn">登录</button>
+        </form>
+    </div>
+
+    <!-- 浮层 -->
+    <div class="container_overlay">
+        <div class="overlay">
+            <div class="overlay_panel overlay--left">
+                <button class="btn" id="signIn">登录</button>
+            </div>
+            <div class="overlay_panel overlay--right">
+                <button class="btn" id="signUp">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 背景 -->
+<div class="slidershow">
+    <div class="slidershow--image" style="background-image: url('/static/picture/login/haha.jpg')"></div>
+    <div class="slidershow--image" style="background-image: url('/static/picture/login/lubenwei.gif')"></div>
+    <div class="slidershow--image" style="background-image: url('/static/picture/login/pizza.jpg')"></div>
+    <div class="slidershow--image" style="background-image: url('/static/picture/login/R-C.jpg')"></div>
+    <div class="slidershow--image" style="background-image: url('/static/picture/login/inside.jpg')"></div>
+    <div class="slidershow--image" style="background-image: url('/static/picture/login/cura.gif')"></div>
+</div>
+
+<!-- partial -->
+  <script src="/static/login_use//script.js"></script>
+</body>
+</html>
