@@ -22,7 +22,8 @@ from datause import database
 #引用一些变量
 from init import *
 
-
+#调用摄像头
+from camera import VideoCamera
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD']=True
@@ -120,7 +121,34 @@ def welcome():
     
     )
 #-----------------------------------------------------------------------
+#----------------------------远程摄像头服务------------------------------
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+ 
+@app.route('/camera', methods=["GET", "POST"])
+def video_on():
+    if 'username' not in session:
+        return render_template('main.html')
+    ro_tmp = database(database_ro,'data')
 
+    return render_template('camera.html',
+        robot_data = ro_tmp.zidian_ro(),
+        IP = IP
+    
+    
+    
+    )
+
+@app.route('/video_feed',methods=["GET", "POST"])
+def video_feed():
+    if 'username' not in session:
+        return render_template('main.html')
+    return Response(gen(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+#-----------------------------------------------------------------------
 #主程序运行
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
