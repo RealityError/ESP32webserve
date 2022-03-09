@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -10,273 +11,282 @@
     <link rel="stylesheet" href="/static/frame/static/css/style.css">
     <link rel="icon" href="/static/frame/static/image/code.png">
 </head>
+
 <body class="body">
 
-<div class="layui-row layui-col-space10 my-index-main">
-    <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
-        <div class="my-nav-btn layui-clear" data-href="/robot">
-            <div class="layui-col-md5">
-                <button class="layui-btn layui-btn-big layui-btn-danger layui-icon">&#xe756;</button>
-            </div>
-            <div class="layui-col-md7 tc">
-                <p class="my-nav-text">{{robot}}</p>
-                <p class="my-nav-text layui-elip">机器人状态</p>
-            </div>
-        </div>
-    </div>
-    <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
-        <div class="my-nav-btn layui-clear" data-href="./demo/form.html">
-            <div class="layui-col-md5">
-                <button class="layui-btn layui-btn-big layui-btn-warm layui-icon">&#xe735;</button>
-            </div>
-            <div class="layui-col-md7 tc">
-                <p class="my-nav-text">{{attendance}}</p>
-                <p class="my-nav-text layui-elip">运输情况</p>
+    <div class="layui-row layui-col-space10 my-index-main">
+        <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+            <div class="my-nav-btn layui-clear" data-href="/robot">
+                <div class="layui-col-md5">
+                    <button class="layui-btn layui-btn-big layui-btn-danger layui-icon">&#xe756;</button>
+                </div>
+                <div class="layui-col-md7 tc">
+                    <p class="my-nav-text">{{robot}}</p>
+                    <p class="my-nav-text layui-elip">机器人状态</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
-        <div class="my-nav-btn layui-clear" data-href="./demo/table.html">
-            <div class="layui-col-md5">
-                <button class="layui-btn layui-btn-big layui-icon">&#xe715;</button>
-            </div>
-            <div class="layui-col-md7 tc">
-                <p class="my-nav-text">{{unmission}}</p>
-                <p class="my-nav-text layui-elip">待办任务</p>
-            </div>
-        </div>
-    </div>
-    <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
-        <div class="my-nav-btn layui-clear" data-href="./demo/tab-card.html">
-            <div class="layui-col-md5">
-                <button class="layui-btn layui-btn-big layui-btn-normal layui-icon">&#xe705;</button>
-            </div>
-            <div class="layui-col-md7 tc">
-                <p class="my-nav-text">{{mission}}</p>
-                <p class="my-nav-text layui-elip">当前任务</p>
+        <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+            <div class="my-nav-btn layui-clear" data-href="./demo/form.html">
+                <div class="layui-col-md5">
+                    <button class="layui-btn layui-btn-big layui-btn-warm layui-icon">&#xe735;</button>
+                </div>
+                <div class="layui-col-md7 tc">
+                    <p class="my-nav-text">{{trans}}</p>
+                    <p class="my-nav-text layui-elip">运输情况</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
-        <div class="my-nav-btn layui-clear" data-href="./demo/progress-bar.html">
-            <div class="layui-col-md5">
-                <button class="layui-btn layui-btn-big layui-bg-cyan layui-icon">&#xe6b2;</button>
-            </div>
-            <div class="layui-col-md7 tc">
-                <p class="my-nav-text">{{welfare}}</p>
-                <p class="my-nav-text layui-elip">福利</p>
-            </div>
-        </div>
-    </div>
-    <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
-        <div class="my-nav-btn layui-clear" data-href="./demo/folding-panel.html">
-            <div class="layui-col-md5">
-                <button class="layui-btn layui-btn-big layui-bg-black layui-icon">&#xe698;</button>
-            </div>
-            <div class="layui-col-md7 tc">
-                <p class="my-nav-text">{{bonus}}</p>
-                <p class="my-nav-text layui-elip">年终奖金</p>
+        <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+            <div class="my-nav-btn layui-clear" data-href="./demo/table.html">
+                <div class="layui-col-md5">
+                    <button class="layui-btn layui-btn-big layui-icon">&#xe715;</button>
+                </div>
+                <div class="layui-col-md7 tc">
+                    <p class="my-nav-text">{{ill}}</p>
+                    <p class="my-nav-text layui-elip">病人体征</p>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+            <div class="my-nav-btn layui-clear" data-href="./demo/tab-card.html">
+                <div class="layui-col-md5">
+                    <button class="layui-btn layui-btn-big layui-btn-normal layui-icon">&#xe705;</button>
+                </div>
+                <div class="layui-col-md7 tc">
+                    <p class="my-nav-text">{{date_work}}</p>
+                    <p class="my-nav-text layui-elip">消毒仓信息</p>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+            <div class="my-nav-btn layui-clear" data-href="./demo/progress-bar.html">
+                <div class="layui-col-md5">
+                    <button class="layui-btn layui-btn-big layui-bg-cyan layui-icon">&#xe6b2;</button>
+                </div>
+                <div class="layui-col-md7 tc">
+                    <p class="my-nav-text">{{Permission}}</p>
+                    <p class="my-nav-text layui-elip">账户权限</p>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+            <div class="my-nav-btn layui-clear" data-href="./demo/folding-panel.html">
+                <div class="layui-col-md5">
+                    <button class="layui-btn layui-btn-big layui-bg-black layui-icon">&#xe698;</button>
+                </div>
+                <div class="layui-col-md7 tc">
+                    <p class="my-nav-text">{{data_use}}</p>
+                    <p class="my-nav-text layui-elip">监控在线</p>
+                </div>
+            </div>
+        </div>
 
-    <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
-        <div class="layui-collapse">
-            <div class="layui-colla-item">
-                <h2 class="layui-colla-title">进度条</h2>
-                <div class="layui-colla-content layui-show">
 
-                    <div class="layui-progress" lay-showPercent="yes">
-                        <div class="layui-progress-bar layui-bg-red" lay-percent="50%"></div>
+
+        <!--机器人状态div-->
+        <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">机器人</h2>
+                    <div class="layui-colla-content layui-show">
+                        <table class="layui-table">
+                            <colgroup>
+                                <col width="150">
+                                <col width="200">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                {%for title,value in robot_data.items() %}
+                                <tr>
+                                    <td>{{ title }}</td>
+                                    {% if value == "状态" %}
+                                    <td>{{ value }}</td>
+                                    {% elif value == "在线" %}
+                                    <td>
+                                        <font color="blue">{{ value }}</font>
+                                    </td>
+                                    {% else	%}
+                                    <td>
+                                        <font color="red">{{ value }}</font>
+                                    </td>
+                                    {% endif %}
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
                     </div>
-                    <br/>
-                    <div class="layui-progress layui-progress-big" lay-showPercent="true">
-                        <div class="layui-progress-bar layui-bg-orange" lay-percent="70%"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">表格</h2>
+                    <div class="layui-colla-content layui-show">
+                        <table class="layui-table">
+
+
+
+                        </table>
+
+
                     </div>
-                    <br/>
-                    <div class="layui-progress layui-progress-big" lay-showPercent="true">
-                        <div class="layui-progress-bar layui-bg-blue" lay-percent="50%"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">控制系统版本</h2>
+                    <div class="layui-colla-content layui-show">
+
+                        <ul class="layui-timeline max-auto">
+                            <li class="layui-timeline-item">
+                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                <div class="layui-timeline-content layui-text">
+                                    <h3 class="layui-timeline-title">v1.0.0</h3>
+                                    <p>
+                                        更新日期:2021-12-29
+                                    </p>
+                                    <ul>
+                                        <li>更新欢迎页面</li>
+                                        <li>搭建数据库和网页对象的联系</li>
+                                        <li>完善远程桌面的功能</li>
+                                        <li>修复已知的BUG</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="layui-timeline-item">
+                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                <div class="layui-timeline-content layui-text">
+                                    <h3 class="layui-timeline-title">v0.7.0</h3>
+                                    <p>更新时间:2021-12-28</p>
+                                    <ul>
+                                        <li>优化主题样式细节</li>
+                                        <li>标签新增双击关闭当前标签功能</li>
+                                        <li>数据库搭建完毕</li>
+                                        <li>修改已知BUG。</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="layui-timeline-item">
+                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                <div class="layui-timeline-content layui-text">
+                                    <h3 class="layui-timeline-title">v0.1.0</h3>
+                                    <p>更新时间:2021-12-27</p>
+                                    <ul>
+                                        <li>优化CSS、JS</li>
+                                        <li>新增新的登录、注册页面</li>
+                                        <li>新增主题功能，提供默认、纯白、蓝白三种主题配置</li>
+                                        <li>导航栏添加图标</li>
+                                        <li>项目基本框架确认</li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                        </ul>
+
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
-    <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
-        <div class="layui-collapse">
-            <div class="layui-colla-item">
-                <h2 class="layui-colla-title">表格</h2>
-                <div class="layui-colla-content layui-show">
 
-                    <table class="layui-table">
-                        <colgroup>
-                            <col width="150">
-                            <col width="200">
-                            <col>
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th>昵称</th>
-                            <th>签名</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {%for k in text_date%}
-                        <tr>
-                        <td>{{k.employee_id}}</td>
-                        <td>{{k.text_date}}</td>
-                        </tr>
-                        {%endfor%}
-                        </tbody>
-                    </table>
 
+        <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">待办任务</h2>
+                    <div class="layui-colla-content layui-show">
+
+                        <table class="layui-table">
+                            <colgroup>
+                                <col width="150">
+                                <col width="200">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>待办任务</th>
+                                    <th>发布时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%for k in text_date%}
+                                <tr>
+                                    <td>{{k.employee_id}}</td>
+                                    <td>{{k.text_date}}</td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
-        <div class="layui-collapse">
-            <div class="layui-colla-item">
-                <h2 class="layui-colla-title">控制系统版本</h2>
-                <div class="layui-colla-content layui-show">
-
-                    <ul class="layui-timeline max-auto">
-                        <li class="layui-timeline-item">
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <div class="layui-timeline-content layui-text">
-                                <h3 class="layui-timeline-title">v1.0.0</h3>
-                                <p>
-                                    更新日期:2021-12-29
-                                </p>
-                                <ul>
-                                    <li>更新欢迎页面</li>
-                                    <li>搭建数据库和网页对象的联系</li>
-                                    <li>完善远程桌面的功能</li>
-                                    <li>修复已知的BUG</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="layui-timeline-item">
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <div class="layui-timeline-content layui-text">
-                                <h3 class="layui-timeline-title">v0.7.0</h3>
-                                <p>更新时间:2021-12-28</p>
-                                <ul>
-                                    <li>优化主题样式细节</li>
-                                    <li>标签新增双击关闭当前标签功能</li>
-                                    <li>数据库搭建完毕</li>
-                                    <li>修改已知BUG。</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="layui-timeline-item">
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <div class="layui-timeline-content layui-text">
-                                <h3 class="layui-timeline-title">v0.1.0</h3>
-                                <p>更新时间:2021-12-27</p>
-                                <ul>
-                                    <li>优化CSS、JS</li>
-                                    <li>新增新的登录、注册页面</li>
-                                    <li>新增主题功能，提供默认、纯白、蓝白三种主题配置</li>
-                                    <li>导航栏添加图标</li>
-                                    <li>项目基本框架确认</li>
-                                </ul>
-                            </div>
-                        </li>
 
 
-                    </ul>
 
-                </div>
-            </div>
-        </div>
     </div>
 
+    <script type="text/javascript" src="/static/frame/layui/layui.js"></script>
+    <script type="text/javascript" src="/static/js/index.js"></script>
+    <script type="text/javascript" src="/static/frame/echarts/echarts.min.js"></script>
+    <script type="text/javascript">
+        layui.use(['element', 'form', 'table', 'layer', 'vip_tab'], function () {
+            const form = layui.form,
+                table = layui.table,
+                layer = layui.layer,
+                vipTab = layui.vip_tab,
+                element = layui.element,
+                $ = layui.jquery;
 
-    <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
-        <div class="layui-collapse">
-            <div class="layui-colla-item">
-                <h2 class="layui-colla-title">待办任务</h2>
-                <div class="layui-colla-content layui-show">
+            // 基于准备好的dom，初始化echarts实例
+            const myChart = echarts.init(document.getElementById('main-line'));
 
-                    <table class="layui-table">
-                        <colgroup>
-                            <col width="150">
-                            <col width="200">
-                            <col>
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th>待办任务</th>
-                            <th>发布时间</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {%for k in text_date%}
-                        <tr>
-                        <td>{{k.employee_id}}</td>
-                        <td>{{k.text_date}}</td>
-                        </tr>
-                        {%endfor%}
-                        </tbody>
-                    </table>
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption({
+                title: {
+                    text: '示例'
+                },
+                tooltip: {},
+                legend: {
+                    data: ['销量']
+                },
+                xAxis: {
+                    data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+                },
+                yAxis: {},
+                series: [{
+                    name: '销量',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }]
+            });
 
-                </div>
-            </div>
-        </div>
-    </div>
+            // 打开选项卡
+            $('.my-nav-btn').on('click', function () {
+                if ($(this).attr('data-href')) {
+                    //vipTab.add('','标题','路径');
+                    vipTab.add($(this), '<i class="layui-icon">' + $(this).find("button").html() +
+                        '</i>' + $(this).find('p:last-child').html(), $(this).attr('data-href'));
+                }
+            });
+
+            // you code ...
 
 
-
-</div>
-
-<script type="text/javascript" src="/static/frame/layui/layui.js"></script>
-<script type="text/javascript" src="/static/js/index.js"></script>
-<script type="text/javascript" src="/static/frame/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    layui.use(['element', 'form', 'table', 'layer', 'vip_tab'], function () {
-        const form = layui.form
-            , table = layui.table
-            , layer = layui.layer
-            , vipTab = layui.vip_tab
-            , element = layui.element
-            , $ = layui.jquery;
-
-        // 基于准备好的dom，初始化echarts实例
-        const myChart = echarts.init(document.getElementById('main-line'));
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption({
-            title: {
-                text: '示例'
-            },
-            tooltip: {},
-            legend: {
-                data: ['销量']
-            },
-            xAxis: {
-                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-            },
-            yAxis: {},
-            series: [{
-                name: '销量',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
-            }]
         });
-
-        // 打开选项卡
-        $('.my-nav-btn').on('click', function(){
-            if($(this).attr('data-href')){
-                //vipTab.add('','标题','路径');
-                vipTab.add($(this),'<i class="layui-icon">'+$(this).find("button").html()+'</i>'+$(this).find('p:last-child').html(),$(this).attr('data-href'));
-            }
-        });
-
-        // you code ...
-
-
-    });
-</script>
+    </script>
 </body>
+
 </html>

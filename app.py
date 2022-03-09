@@ -52,7 +52,7 @@ def reg():
                 print(i)
                 if name in i:
                     return render_template('main.html', msg="该用户已经注册")
-            use_tmp.set_one(use_tmp.max_x(),1,"PL")         
+            use_tmp.set_one(use_tmp.max_x(),1,"普通用户")         
             use_tmp.set_one(use_tmp.max_x(),2,name)
             use_tmp.set_one(use_tmp.max_x(),3,email)
             use_tmp.set_one(use_tmp.max_x(),4,password)
@@ -91,15 +91,34 @@ def login():
         return render_template('main.html',msg="该用户不存在")    
         
 #----------------------------------------------------------------------
+#-------------------------404错误响应----------------------------------
+
+@app.errorhandler(404)
+def page_unauthorized(error):
+    return render_template('404.html'), 404
+
+#----------------------------------------------------------------------
+
 
 #------------------------------服务端业务-------------------------------
+#index页面跳转逻辑
 @app.route("/index", methods=["GET", "POST"])
 def index():
     return render_template('index.html')
 
+#欢迎页面
 @app.route("/welcome",methods=["GET", "POST"])
 def welcome():
-    return render_template('welcome.html')
+    ro_tmp = database(database_ro,'data')
+
+    print( ro_tmp.zidian_ro())
+    return render_template('welcome.html',
+        robot_data = ro_tmp.zidian_ro()
+    
+    
+    
+    
+    )
 #-----------------------------------------------------------------------
 
 #主程序运行

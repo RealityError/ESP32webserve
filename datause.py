@@ -68,6 +68,20 @@ class database():#选择文件和其中的表格
             self.user.cell(row=row, column=colunm).value = "writefail"
             self.xlsx.save(self.file)
 
+    # 根据数据库自动生成字典
+    def zidian_ro(self):
+        r = self.user.max_row #y
+        l = self.user.max_column#x
+        dict = {}
+        for i in range(1, r+1):
+            title  =  self.user.cell(i, 1).value
+            #print(title,1)
+            for j in range(1,l+1):               
+                value =  self.user.cell(i, j).value
+                #print(value,2)
+                dict[title] = value
+        #print(dict)
+        return dict 
 
 
 #xlsx_user = use.load_workbook(filename)
