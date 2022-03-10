@@ -6,13 +6,16 @@
 # 用意：搭建网站
 
 
-
+import socket
+from wsgiref.simple_server import make_server
 
 #网站初始化
 from asyncio.windows_events import NULL
-import os
+import re, os 
 import pickletools
 from flask import Flask, render_template, Response, make_response, request, session
+from flask_cors import *
+
 from config import Config
 import json
 
@@ -25,7 +28,19 @@ from init import *
 #调用摄像头
 from camera import VideoCamera
 
+
+#多网卡情况下，根据前缀获取IP
+def GetLocalIPByPrefix(prefix):
+    localIP = ''
+    for ip in socket.gethostbyname_ex(socket.gethostname())[2]:
+        if ip.startswith(prefix):
+            localIP = ip
+     
+    return localIP
+     
+
 app = Flask(__name__)
+CORS(app, resources=r'/*')
 app.config['TEMPLATES_AUTO_RELOAD']=True
 app.config['SECRET_KEY'] = '$%^&*()345671231adFGHJBHJK,./'
 
@@ -166,13 +181,12 @@ def video_on():
     if 'username' not in session:
         return render_template('main.html')
     ro_tmp = database(database_ro,'data')
+    ro_ip = database(database_ro,'ip_CAM') 
 
+    print(json.dumps(ro_ip.zidian_ro(),ensure_ascii=False))
     return render_template('camera.html',
         robot_data = ro_tmp.zidian_ro(),
-        IP = IP
-    
-    
-    
+        IP = json.dumps(ro_ip.zidian_ro())
     )
 
 @app.route('/video_feed',methods=["GET", "POST"])
@@ -184,4 +198,8 @@ def video_feed():
 #-----------------------------------------------------------------------
 #主程序运行
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+
+    print("已检索到本地IP"+GetLocalIPByPrefix('192.168'))
+    print("正在开启网络服务")
+    app.run(host = GetLocalIPByPrefix('192.168'),threaded=True)
+

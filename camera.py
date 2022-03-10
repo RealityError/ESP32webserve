@@ -1,7 +1,7 @@
 from platform import python_branch
 from time import time
 import cv2
-from init import IP
+from init import *
 
 
 class VideoCamera(object):
