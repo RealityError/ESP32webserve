@@ -105,14 +105,17 @@ def page_unauthorized(error):
 #index页面跳转逻辑
 @app.route("/index", methods=["GET", "POST"])
 def index():
+    if 'username' not in session:
+        return render_template('main.html')
     return render_template('index.html')
 
 #欢迎页面
 @app.route("/welcome",methods=["GET", "POST"])
 def welcome():
+    if 'username' not in session:
+        return render_template('main.html')
     ro_tmp = database(database_ro,'data')
 
-    print( ro_tmp.zidian_ro())
     return render_template('welcome.html',
         robot_data = ro_tmp.zidian_ro()
     
@@ -120,7 +123,37 @@ def welcome():
     
     
     )
+
+
+@app.route("/robot",methods=["GET", "POST"])
+def robot():
+    if 'username' not in session:
+        return render_template('main.html')
+
+
+
+    #获取机器人的信息    
+    ro_tmp = database(database_ro,'data')
+    ro_info = database(database_ro,'info')  
+    ro_data = database(database_ro,'json') 
+
+
+
+    return render_template('robot_data.html',
+      robot_data = ro_tmp.zidian_ro(),
+      robot_info = ro_info.zidian_ro(),
+      robot_json = ro_data.zidian_ro()
+    
+    )
+
+
+
 #-----------------------------------------------------------------------
+
+
+
+
+
 #----------------------------远程摄像头服务------------------------------
 def gen(camera):
     while True:
