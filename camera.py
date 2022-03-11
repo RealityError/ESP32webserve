@@ -5,8 +5,8 @@ from init import *
 
 
 class VideoCamera(object):
-    def __init__(self):
-        self.cap = cv2.VideoCapture(IP) 
+    def __init__(self,IP_USE):
+        self.cap = cv2.VideoCapture(IP_USE) 
     
     def __del__(self):
         self.cap.release()
