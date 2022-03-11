@@ -6,6 +6,7 @@
 # 用意：搭建网站
 
 
+from ast import Global
 import socket
 from wsgiref.simple_server import make_server
 
@@ -29,6 +30,9 @@ from init import *
 from camera import VideoCamera
 
 
+
+
+
 #多网卡情况下，根据前缀获取IP
 def GetLocalIPByPrefix(prefix):
     localIP = ''
@@ -43,6 +47,8 @@ app = Flask(__name__)
 CORS(app, resources=r'/*')
 app.config['TEMPLATES_AUTO_RELOAD']=True
 app.config['SECRET_KEY'] = '$%^&*()345671231adFGHJBHJK,./'
+
+
 
 
 #------------------------------主页面业务-------------------------------
@@ -180,25 +186,41 @@ def gen(camera):
 def video_on():
     if 'username' not in session:
         return render_template('main.html')
-    ro_tmp = database(database_ro,'data')
-    ro_ip = database(database_ro,'ip_CAM') 
 
-    print(json.dumps(ro_ip.zidian_ro(),ensure_ascii=False))
-    return render_template('camera.html',
+    if request.method == 'GET':
+        ro_tmp = database(database_ro,'data')
+        ro_ip = database(database_ro,'ip_CAM')
+        return render_template('camera.html',
         robot_data = ro_tmp.zidian_ro(),
         IP = json.dumps(ro_ip.zidian_ro())
     )
+    if request.method == 'POST':
+        global IP_USE
+        IP_USE = request.form.get('IP')
+        print(IP_USE)
+
+        ro_tmp = database(database_ro,'data')
+        ro_ip = database(database_ro,'ip_CAM') 
+
+
+        return render_template('camera.html',
+        robot_data = ro_tmp.zidian_ro(),
+        IP = json.dumps(ro_ip.zidian_ro())
+        )
+    
 
 @app.route('/video_feed',methods=["GET", "POST"])
 def video_feed():
     if 'username' not in session:
         return render_template('main.html')
-    return Response(gen(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
+    global IP_USE
+    print("用户正在调用摄像头")
+    return Response(gen(VideoCamera(IP_USE)), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 #-----------------------------------------------------------------------
 #主程序运行
 if __name__ == '__main__':
-
+    IP_USE = ''
     print("已检索到本地IP"+GetLocalIPByPrefix('192.168'))
     print("正在开启网络服务")
     app.run(host = GetLocalIPByPrefix('192.168'),threaded=True)
