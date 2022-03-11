@@ -29,9 +29,11 @@ from init import *
 #调用摄像头
 from camera import VideoCamera
 
-
-
-
+#渲染图标
+from jinja2 import Markup
+from pyecharts import options as opts
+from pyecharts.charts import Bar
+import random
 
 #多网卡情况下，根据前缀获取IP
 def GetLocalIPByPrefix(prefix):
@@ -113,6 +115,10 @@ def login():
         return render_template('main.html',msg="该用户不存在")    
         
 #----------------------------------------------------------------------
+
+
+
+
 #-------------------------404错误响应----------------------------------
 
 @app.errorhandler(404)
@@ -145,7 +151,7 @@ def welcome():
     
     )
 
-
+#获取机器人信息
 @app.route("/robot",methods=["GET", "POST"])
 def robot():
     if 'username' not in session:
@@ -166,6 +172,29 @@ def robot():
       robot_json = ro_data.zidian_ro()
     
     )
+
+
+
+#病人体征图表
+def bar_base() -> Bar:
+  c = (
+    Bar()
+      .add_xaxis(["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"])
+      .add_yaxis("商家A", [random.randint(10, 100) for _ in range(6)])
+      .add_yaxis("商家B", [random.randint(10, 100) for _ in range(6)])
+      .set_global_opts(title_opts=opts.TitleOpts(title="", subtitle=""))
+  )
+  return c
+
+@app.route("/bar")
+def get_chart():
+  return render_template('text.html')
+
+@app.route("/barChart")
+def get_bar_chart():
+  c = bar_base()
+  return c.dump_options_with_quotes()
+
 
 
 
@@ -218,6 +247,9 @@ def video_feed():
     return Response(gen(VideoCamera(IP_USE)), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 #-----------------------------------------------------------------------
+
+
+
 #主程序运行
 if __name__ == '__main__':
     IP_USE = ''
